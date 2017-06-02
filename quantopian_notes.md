@@ -58,6 +58,8 @@ def handle_data(context, data):
 data.current(sid(24), 'price')
 data.current([sid(24), sid(8554)], 'price') # price of both in pandas series 
 data.current([sid(24), sid(8554)], ['low', 'high']) # last known low and high prices of both stocks, pandas dataframe 
-
-data.can_trade(sid(24)) # returns true if the share is on a supported major exchange and can be ordered, can change in each "bar" minute, can order the asset in that bar if true. 
+````
+data.can_trade() returns true if the share is on a supported major exchange and can be ordered, can change in each "bar" minute, can order the asset in that bar if true. 
+````
+data.can_trade(sid(24)) 
 ````

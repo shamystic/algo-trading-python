@@ -33,6 +33,31 @@ Ordering Securities
 ````
 order_target_percent(sid(24), 0.50)
 ````  
-To do a short position, enter a negative target value 
+To do a short position, enter a negative target value. 
+
 Short position- profits when a share drops in price, bearish stock
 Long position- profits when a share raises in price, when investors expect growth/bullish stock
+
+The following code takes a long position on Apple to be 60% of our portfolio, and short on SPY ETF worth 40% of our value: 
+
+
+````
+def initialize(context):
+    context.aapl = sid(24)
+    context.spy = sid(8554)
+
+def handle_data(context, data):
+    # Note: data.can_trade() is explained in the next lesson
+    if data.can_trade(context.aapl):
+        order_target_percent(context.aapl, 0.60)
+    if data.can_trade(context.spy):
+        order_target_percent(context.spy, -0.40)
+````
+- Get the most recent price of a stock: 
+````
+data.current(sid(24), 'price')
+data.current([sid(24), sid(8554)], 'price') # price of both in pandas series 
+data.current([sid(24), sid(8554)], ['low', 'high']) # last known low and high prices of both stocks, pandas dataframe 
+
+data.can_trade(sid(24)) # returns true if the share is on a supported major exchange and can be ordered, can change in each "bar" minute, can order the asset in that bar if true. 
+````

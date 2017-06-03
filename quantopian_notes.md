@@ -1,4 +1,9 @@
+
+- https://www.datacamp.com/community/tutorials/finance-python-trading#gs.Y1fZpI8
+- https://www.quantopian.com/tutorials/getting-started
+
 # Investing on Quantopian  
+
 
 Trading algorithm on Quantopian has: 
 1. initialize(context) function, called only once when the program starts to perform one-time startup logic 
